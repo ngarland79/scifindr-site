@@ -1,0 +1,92 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Discover science museums around the world' } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content={description}>
+  <link rel="icon" type="image/svg+xml" href="/images/scifindr-icon.svg">
+  <title>{title} | Scifindr</title>
+</head>
+<body>
+  <!-- Spectrum Banner -->
+  <div class="spectrum-banner">
+    <div style="background:hsl(220 20% 10%);flex:0.5"></div>
+    <div style="background:hsl(215 18% 18%);flex:0.8"></div>
+    <div style="background:hsl(215 14% 30%);flex:1"></div>
+    <div style="background:hsl(200 60% 18%);flex:1.5"></div>
+    <div style="background:hsl(195 57% 44%);flex:0.8"></div>
+    <div style="background:hsl(210 10% 80%);flex:2"></div>
+    <div style="background:hsl(210 14% 93%);flex:0.7"></div>
+    <div style="background:hsl(210 20% 97%);flex:1.2"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <img src="/images/scifindr-logo.svg" alt="Scifindr" height="32">
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" id="nav-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/museums">Museums</a></li>
+        <li><a href="/museums" class="btn btn-primary btn-sm">Explore</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <slot />
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="/images/scifindr-logo.svg" alt="Scifindr" style="filter: brightness(2);">
+        <p>Discover science museums around the world. From dinosaur halls to planetariums, find your next adventure in science.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/museums">All Museums</a></li>
+          <li><a href="/museums">Science Centers</a></li>
+          <li><a href="/museums">Natural History</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>About</h4>
+        <ul>
+          <li><a href="/">About Scifindr</a></li>
+          <li><a href="/">Contact</a></li>
+          <li><a href="/">Data Sources</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; {new Date().getFullYear()} Scifindr. Built with curiosity. Data sourced from Wikidata &amp; Wikimedia Commons.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('nav-toggle')?.addEventListener('click', () => {
+      document.getElementById('nav-links')?.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>

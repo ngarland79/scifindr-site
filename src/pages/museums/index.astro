@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import MuseumCard from '../../components/MuseumCard.astro';
+import museums from '../../data/museums.json';
+
+const types = [...new Set(museums.map(m => m.type))].sort();
+const countries = [...new Set(museums.map(m => m.country))].sort();
+---
+
+<BaseLayout title="All Museums" description="Browse 25 of the world's most iconic science museums">
+
+  <!-- Hero -->
+  <section class="hero" style="padding: 3.5rem 2rem 3rem;">
+    <div class="container">
+      <div class="breadcrumbs" style="color: hsl(var(--hero-fg) / 0.5);">
+        <a href="/" style="color: hsl(var(--hero-accent));">Home</a>
+        <span>/</span>
+        <span style="color: hsl(var(--hero-fg) / 0.7);">Museums</span>
+      </div>
+      <p class="eyebrow">Browse the Collection</p>
+      <h1>Science Museums</h1>
+      <p class="subtitle">
+        Explore {museums.length} extraordinary science museums across {countries.length} countries.
+      </p>
+    </div>
+  </section>
+
+  <!-- Filters & Listing -->
+  <section style="padding: 3rem 0 4rem;">
+    <div class="container">
+
+      <!-- Search -->
+      <div class="search-wrapper" style="margin-bottom: 2rem;">
+        <span class="search-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
+          </svg>
+        </span>
+        <input type="text" class="input" id="museum-search" placeholder="Search museums by name, city, or country..." />
+      </div>
+
+      <!-- Filters -->
+      <div class="filter-bar" id="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        {types.map(type => (
+          <button class="filter-btn" data-filter={type}>{type}</button>
+        ))}
+      </div>
+
+      <!-- Grid -->
+      <div class="museum-grid" id="museum-grid">
+        {museums.map(museum => (
+          <div class="museum-grid-item" data-type={museum.type} data-name={museum.name.toLowerCase()} data-city={museum.city.toLowerCase()} data-country={museum.country.toLowerCase()}>
+            <MuseumCard museum={museum} />
+          </div>
+        ))}
+      </div>
+
+      <!-- Empty state -->
+      <div id="empty-state" style="display: none; text-align: center; padding: 4rem 2rem;">
+        <p style="font-size: 1.2rem; color: hsl(var(--muted-foreground)); margin-bottom: 0.5rem;">No museums found</p>
+        <p style="font-size: 14px; color: hsl(var(--muted-foreground) / 0.7);">Try adjusting your search or filter criteria.</p>
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script>
+  // Filter logic
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const items = document.querySelectorAll('.museum-grid-item');
+  const searchInput = document.getElementById('museum-search') as HTMLInputElement;
+  const emptyState = document.getElementById('empty-state');
+  const grid = document.getElementById('museum-grid');
+
+  let currentFilter = 'all';
+  let currentSearch = '';
+
+  function applyFilters() {
+    let visibleCount = 0;
+    items.forEach(item => {
+      const el = item as HTMLElement;
+      const matchesType = currentFilter === 'all' || el.dataset.type === currentFilter;
+      const matchesSearch = currentSearch === '' ||
+        el.dataset.name?.includes(currentSearch) ||
+        el.dataset.city?.includes(currentSearch) ||
+        el.dataset.country?.includes(currentSearch);
+
+      if (matchesType && matchesSearch) {
+        el.style.display = '';
+        visibleCount++;
+      } else {
+        el.style.display = 'none';
+      }
+    });
+    if (emptyState) emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+    if (grid) grid.style.display = visibleCount === 0 ? 'none' : '';
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentFilter = (btn as HTMLElement).dataset.filter || 'all';
+      applyFilters();
+    });
+  });
+
+  searchInput?.addEventListener('input', (e) => {
+    currentSearch = (e.target as HTMLInputElement).value.toLowerCase();
+    applyFilters();
+  });
+</script>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 60" fill="none">
+  <!-- Map Pin (no drop shadow) -->
+  <g transform="translate(2, 0)">
+    <!-- Pin body -->
+    <path d="M24 4C13.5 4 5 12.5 5 23c0 12.5 19 33 19 33s19-20.5 19-33C43 12.5 34.5 4 24 4z" fill="#3090B0"/>
+    <!-- Pin inner circle (lighter) -->
+    <circle cx="24" cy="21" r="10" fill="#3090B0" opacity="0.3"/>
+    <!-- Dinosaur skull silhouette -->
+    <g transform="translate(11, 10) scale(0.55)" fill="#2a2a2a">
+      <path d="M42 8c0-3-2-6-5-7-1-1-3-1-4 0-2-1-4-1-5 0C26 2 24 3 23 5c-2 0-4 1-5 3-1 1-1 3 0 4l-3 4c-1 1-1 3 0 4l2 2-4 3c-1 1-2 3-1 4l2 4h6l2-2h4l2 2h6l2-4c1-1 0-3-1-4l-4-3 2-2c1-1 1-3 0-4l-3-4c1-1 1-3 0-4C39 10 42 10 42 8zM18 18c-1 0-2-1-2-2s1-2 2-2 2 1 2 2-1 2-2 2zm10 0c-1 0-2-1-2-2s1-2 2-2 2 1 2 2-1 2-2 2z"/>
+      <!-- Jaw -->
+      <path d="M10 22l-6 4c-1 1-1 2 0 3l3 2 8-4-2-3-3-2z"/>
+      <path d="M8 26l1 1M10 25l1 1M12 24l1 1" stroke="#3090B0" stroke-width="0.5"/>
+    </g>
+  </g>
+  <!-- Text: sci (teal) findr (dark) -->
+  <text x="52" y="40" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="36">
+    <tspan fill="#3090B0">sci</tspan><tspan fill="#3E4A58">findr</tspan>
+  </text>
+</svg>

@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import museums from '../../data/museums.json';
+
+export function getStaticPaths() {
+  return museums.map(museum => ({
+    params: { slug: museum.slug },
+    props: { museum },
+  }));
+}
+
+const { museum } = Astro.props;
+---
+
+<BaseLayout title={museum.name} description={museum.shortDescription}>
+
+  <!-- Detail Hero -->
+  <div class="detail-hero">
+    <img
+      src={museum.imageUrl}
+      alt={museum.name}
+      onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, hsl(200 60% 18%), hsl(195 57% 44%))';"
+    />
+    <div class="detail-hero-overlay">
+      <div class="container">
+        <div class="breadcrumbs" style="color: hsl(var(--hero-fg) / 0.5); margin-bottom: 1rem;">
+          <a href="/" style="color: hsl(var(--hero-accent));">Home</a>
+          <span>/</span>
+          <a href="/museums" style="color: hsl(var(--hero-accent));">Museums</a>
+          <span>/</span>
+          <span style="color: hsl(var(--hero-fg) / 0.7);">{museum.name}</span>
+        </div>
+        <h1>{museum.name}</h1>
+        <p class="location">
+          <svg style="display:inline; vertical-align:-2px; margin-right:4px;" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+          </svg>
+          {museum.city}, {museum.country}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Detail Content -->
+  <section class="detail-content">
+    <div class="container">
+      <div class="detail-body">
+
+        <!-- Main content -->
+        <div>
+          <div class="section-label">About this Museum</div>
+          <p class="detail-description">{museum.description}</p>
+
+          {museum.highlights && museum.highlights.length > 0 && (
+            <div style="margin-top: 2.5rem;">
+              <div class="section-label">Highlights</div>
+              <ul class="highlights-list">
+                {museum.highlights.map((h: string) => (
+                  <li>{h}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <!-- Map placeholder -->
+          {museum.latitude && museum.longitude && (
+            <div style="margin-top: 2.5rem;">
+              <div class="section-label">Location</div>
+              <div style="
+                background: hsl(var(--surface-sunken));
+                border: 0.5px solid hsl(var(--border));
+                border-radius: 8px;
+                height: 260px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 8px;
+              ">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="hsl(195 57% 44%)" stroke-width="1.5" opacity="0.5">
+                  <path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+                </svg>
+                <span style="font-family: var(--font-mono); font-size: 11px; color: hsl(var(--muted-foreground));">
+                  {museum.latitude.toFixed(4)}, {museum.longitude.toFixed(4)}
+                </span>
+                <span style="font-size: 12px; color: hsl(var(--muted-foreground) / 0.6);">
+                  Interactive map coming soon
+                </span>
+              </div>
+            </div>
+          )}
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="detail-sidebar">
+
+          <!-- Quick Info -->
+          <div class="detail-info-card">
+            <h3>Quick Info</h3>
+            <div class="info-row">
+              <span class="info-label">Type</span>
+              <span class="info-value">{museum.type}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Founded</span>
+              <span class="info-value">{museum.yearFounded}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Admission</span>
+              <span class="info-value">{museum.admission}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">City</span>
+              <span class="info-value">{museum.city}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Country</span>
+              <span class="info-value">{museum.country}</span>
+            </div>
+          </div>
+
+          <!-- Website Link -->
+          {museum.website && (
+            <a href={museum.website} target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; justify-content: center;">
+              Visit Website
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+              </svg>
+            </a>
+          )}
+
+          <!-- Image credit & license -->
+          <div style="
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: hsl(var(--muted-foreground));
+            letter-spacing: 0.04em;
+            padding: 12px 16px;
+            background: hsl(var(--surface-sunken));
+            border-radius: 6px;
+            line-height: 1.6;
+          ">
+            <div style="margin-bottom: 4px; color: hsl(var(--primary)); text-transform: uppercase; letter-spacing: 0.1em;">Image Credit</div>
+            {museum.imageCredit}
+            {museum.imageFullUrl && (
+              <div style="margin-top: 6px;">
+                <a href={museum.imageFullUrl} target="_blank" rel="noopener noreferrer" style="color: hsl(var(--primary)); font-size: 10px;">
+                  View on Wikimedia Commons &rarr;
+                </a>
+              </div>
+            )}
+          </div>
+
+          <!-- Back link -->
+          <a href="/museums" class="btn btn-outline" style="width: 100%; justify-content: center;">
+            &larr; Back to All Museums
+          </a>
+
+        </aside>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

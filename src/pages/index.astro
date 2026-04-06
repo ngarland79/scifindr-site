@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import MuseumCard from '../components/MuseumCard.astro';
+import museums from '../data/museums.json';
+
+const featured = museums.slice(0, 6);
+---
+
+<BaseLayout title="Discover Science Museums">
+
+  <!-- Hero -->
+  <section class="hero" style="padding: 5rem 2rem 4rem;">
+    <div class="container" style="max-width: 800px; text-align: center;">
+      <p class="eyebrow">Discover &middot; Explore &middot; Learn</p>
+      <h1>Find Your Next<br>Science Adventure</h1>
+      <p class="subtitle" style="margin: 1.25rem auto 2rem; max-width: 520px;">
+        From dinosaur halls to planetariums, explore {museums.length} of the world's
+        most extraordinary science museums.
+      </p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a href="/museums" class="btn btn-primary btn-lg">Browse Museums</a>
+        <a href="#featured" class="btn btn-outline btn-lg" style="color: hsl(var(--hero-fg)); border-color: hsl(var(--hero-fg) / 0.3);">
+          Featured &darr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section style="border-bottom: 1px solid hsl(var(--border));">
+    <div class="container">
+      <div class="stats-bar">
+        <div class="stat">
+          <div class="stat-number">{museums.length}</div>
+          <div class="stat-label">Museums</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">{[...new Set(museums.map(m => m.country))].length}</div>
+          <div class="stat-label">Countries</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">{[...new Set(museums.map(m => m.type))].length}</div>
+          <div class="stat-label">Categories</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">{Math.min(...museums.map(m => m.yearFounded))}</div>
+          <div class="stat-label">Oldest Founded</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section style="padding: 4rem 0;">
+    <div class="container">
+      <div class="section-label">Why Scifindr</div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
+            </svg>
+          </div>
+          <h3>Discover</h3>
+          <p>Search and filter science museums worldwide by type, location, and admission. Find the perfect museum for your next visit.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+            </svg>
+          </div>
+          <h3>Explore</h3>
+          <p>Each museum comes with detailed information including highlights, location data, and what makes it special.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342"/>
+            </svg>
+          </div>
+          <h3>Learn</h3>
+          <p>Dive into the stories behind iconic institutions — from Enlightenment-era cabinets of curiosity to cutting-edge science centers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Museums -->
+  <section id="featured" style="padding: 4rem 0; background: hsl(var(--surface-sunken));">
+    <div class="container">
+      <div class="section-label">Featured Museums</div>
+      <h2 style="font-family: var(--font-display); font-size: 2rem; font-weight: var(--font-weight-display); margin-bottom: 0.5rem;">
+        World-Class Destinations
+      </h2>
+      <p style="color: hsl(var(--muted-foreground)); max-width: 55ch; margin-bottom: 2rem; font-size: 15px;">
+        A curated selection of extraordinary science museums spanning four continents.
+      </p>
+      <div class="museum-grid">
+        {featured.map(museum => (
+          <MuseumCard museum={museum} />
+        ))}
+      </div>
+      <div style="text-align: center; margin-top: 2.5rem;">
+        <a href="/museums" class="btn btn-primary btn-lg">View All {museums.length} Museums &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="hero" style="padding: 4rem 2rem;">
+    <div class="container" style="text-align: center; max-width: 600px;">
+      <p class="eyebrow">Start Exploring</p>
+      <h2 style="font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: var(--font-weight-display); color: hsl(var(--hero-fg)); margin-bottom: 1rem;">
+        Ready to discover something extraordinary?
+      </h2>
+      <p style="color: hsl(var(--hero-fg) / 0.65); margin-bottom: 2rem;">
+        Browse our collection of the world's most remarkable science museums and plan your next visit.
+      </p>
+      <a href="/museums" class="btn btn-primary btn-lg">Explore Museums</a>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,84 @@
+---
+interface Props {
+  museum: {
+    slug: string;
+    name: string;
+    city: string;
+    country: string;
+    shortDescription: string;
+    type: string;
+    admission: string;
+    imageUrl: string;
+    yearFounded: number;
+  };
+}
+
+const { museum } = Astro.props;
+---
+
+<a href={`/museums/${museum.slug}`} class="card museum-card" style="text-decoration:none; display:block;">
+  <div class="card-image-wrapper">
+    <img
+      src={museum.imageUrl}
+      alt={museum.name}
+      class="card-image"
+      loading="lazy"
+      onerror="this.style.display='none'; this.parentElement.classList.add('card-image-fallback');"
+    />
+    <div class="card-badges">
+      <span class="badge badge-default">{museum.type}</span>
+      {museum.admission === 'Free' && (
+        <span class="badge badge-secondary" style="background: hsl(152 40% 40%); color: white;">Free</span>
+      )}
+    </div>
+  </div>
+  <div class="card-header">
+    <h3 class="card-title">{museum.name}</h3>
+    <p class="card-description">{museum.city}, {museum.country}</p>
+  </div>
+  <div class="card-content">
+    <p style="font-size: 14px; color: hsl(var(--foreground) / 0.7); line-height: 1.6;">
+      {museum.shortDescription}
+    </p>
+  </div>
+  <div class="card-footer">
+    <span style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; color: hsl(var(--muted-foreground)); text-transform: uppercase;">
+      Est. {museum.yearFounded}
+    </span>
+    <span class="btn btn-ghost btn-sm" style="margin-left: auto; font-size: 12px;">
+      Explore &rarr;
+    </span>
+  </div>
+</a>
+
+<style>
+  .museum-card { cursor: pointer; }
+  .card-image-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+  .card-image-wrapper img {
+    transition: transform 0.4s ease;
+  }
+  .museum-card:hover .card-image-wrapper img {
+    transform: scale(1.05);
+  }
+  .card-badges {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    display: flex;
+    gap: 6px;
+  }
+  .card-image-fallback {
+    height: 200px;
+    background: linear-gradient(135deg, hsl(var(--fy-navy)), hsl(var(--fy-teal)));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card-image-fallback::after {
+    content: '🔬';
+    font-size: 3rem;
+  }
+</style>
