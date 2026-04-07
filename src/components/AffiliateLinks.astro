@@ -1,0 +1,486 @@
+---
+interface Tour {
+  title: string;
+  provider: 'getyourguide' | 'viator';
+  badge: string;
+  url: string;
+}
+
+interface Props {
+  ticketUrl: string | null;
+  museumName: string;
+  city: string;
+  country: string;
+  type: string;
+  tours?: Tour[];
+}
+
+const { ticketUrl, museumName, city, country, type, tours = [] } = Astro.props;
+
+const providerLabel: Record<string, string> = {
+  getyourguide: 'GetYourGuide',
+  viator: 'Viator',
+};
+
+// Specific product recommendations keyed by museum type.
+// Amazon links use named product searches so the right item surfaces first.
+// Replace YOUR_TAG with your Amazon Associates tag before going live.
+const TAG = 'YOUR_TAG';
+
+type Product = { name: string; sub: string; url: string };
+type TypeProducts = { book: Product; kit: Product; kiwico: Product };
+
+const productsByType: Record<string, TypeProducts> = {
+  'Natural History Museum': {
+    book: {
+      name: 'Smithsonian Natural History',
+      sub: 'DK\'s definitive illustrated encyclopedia',
+      url: `https://www.amazon.com/s?k=Smithsonian+Natural+History+DK+Encyclopedia&tag=${TAG}`,
+    },
+    kit: {
+      name: 'Thames & Kosmos Excavate! Dinosaurs',
+      sub: 'Dig and assemble a real fossil cast',
+      url: `https://www.amazon.com/s?k=Thames+Kosmos+Excavate+Dinosaurs+kit&tag=${TAG}`,
+    },
+    kiwico: {
+      name: 'Dino Dig Crate',
+      sub: 'Build a T. rex & learn paleontology',
+      url: 'https://www.kiwico.com',
+    },
+  },
+  'Science Center': {
+    book: {
+      name: 'The Way Things Work Now',
+      sub: 'David Macaulay\'s classic illustrated guide',
+      url: `https://www.amazon.com/s?k=The+Way+Things+Work+Now+Macaulay&tag=${TAG}`,
+    },
+    kit: {
+      name: 'Thames & Kosmos Physics Workshop',
+      sub: '30+ experiments in forces & motion',
+      url: `https://www.amazon.com/s?k=Thames+Kosmos+Physics+Workshop+kit&tag=${TAG}`,
+    },
+    kiwico: {
+      name: 'Tinker Crate',
+      sub: 'Engineering challenges for ages 9–16',
+      url: 'https://www.kiwico.com',
+    },
+  },
+  'Science Museum': {
+    book: {
+      name: 'What If? 2 — Randall Munroe',
+      sub: 'Absurd hypotheticals, serious science',
+      url: `https://www.amazon.com/s?k=What+If+2+Randall+Munroe&tag=${TAG}`,
+    },
+    kit: {
+      name: 'Thames & Kosmos Chem C500',
+      sub: 'Classic chemistry starter set, 125 experiments',
+      url: `https://www.amazon.com/s?k=Thames+Kosmos+Chem+C500&tag=${TAG}`,
+    },
+    kiwico: {
+      name: 'Eureka Crate',
+      sub: 'Physics & chemistry projects ages 14+',
+      url: 'https://www.kiwico.com',
+    },
+  },
+  'Science & Technology Museum': {
+    book: {
+      name: 'The Innovators — Walter Isaacson',
+      sub: 'How hackers and inventors built the digital age',
+      url: `https://www.amazon.com/s?k=The+Innovators+Walter+Isaacson&tag=${TAG}`,
+    },
+    kit: {
+      name: 'Thames & Kosmos Electronics Starter',
+      sub: 'Build 63 working circuits from scratch',
+      url: `https://www.amazon.com/s?k=Thames+Kosmos+Electronics+Starter+Kit&tag=${TAG}`,
+    },
+    kiwico: {
+      name: 'Maker Crate',
+      sub: 'Real craft + engineering projects, ages 14+',
+      url: 'https://www.kiwico.com',
+    },
+  },
+};
+
+// Fall back to Science Museum products for any unlisted type
+const products: TypeProducts = productsByType[type] ?? productsByType['Science Museum'];
+
+const hotelUrl = `https://www.booking.com/searchresults.html?ss=${encodeURIComponent(city + ', ' + country)}&aid=YOUR_AID`;
+---
+
+<!-- ── PROMINENT TICKET BOOKING — always visible ──────── -->
+<div class="ticket-hero">
+  <div class="ticket-hero-eyebrow">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"/>
+    </svg>
+    Book Tickets
+  </div>
+  <p class="ticket-hero-label">Plan your visit</p>
+  <p class="ticket-hero-sub">Skip the queue with advance tickets and guided experiences</p>
+
+  <!-- Primary: Tiqets — add your affiliate ID: &partner_id=YOUR_ID -->
+  <a
+    href={`https://www.tiqets.com/en/search/?q=${encodeURIComponent(museumName)}`}
+    target="_blank"
+    rel="noopener noreferrer sponsored"
+    class="ticket-cta"
+  >
+    Buy on Tiqets
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <path d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+    </svg>
+  </a>
+
+  <!-- Featured tours -->
+  {tours.length > 0 && (
+    <div class="tour-list">
+      {tours.map((tour) => (
+        <a href={tour.url} target="_blank" rel="noopener noreferrer sponsored" class="tour-card">
+          <span class="tour-card-left">
+            <span class="tour-badge">{tour.badge}</span>
+            <span class="tour-title">{tour.title}</span>
+          </span>
+          <span class="tour-provider">{providerLabel[tour.provider]}</span>
+        </a>
+      ))}
+    </div>
+  )}
+
+  <!-- Secondary: other providers -->
+  <div class="ticket-secondary">
+    <a
+      href={`https://www.getyourguide.com/s/?q=${encodeURIComponent(museumName)}`}
+      target="_blank"
+      rel="noopener noreferrer sponsored"
+      class="ticket-secondary-link"
+    >GetYourGuide</a>
+    <span class="ticket-secondary-divider">·</span>
+    <a
+      href={`https://www.viator.com/search/${encodeURIComponent(museumName)}`}
+      target="_blank"
+      rel="noopener noreferrer sponsored"
+      class="ticket-secondary-link"
+    >Viator</a>
+    {ticketUrl && (
+      <>
+        <span class="ticket-secondary-divider">·</span>
+        <a
+          href={ticketUrl}
+          target="_blank"
+          rel="noopener noreferrer sponsored"
+          class="ticket-secondary-link"
+        >Official site</a>
+      </>
+    )}
+  </div>
+</div>
+
+<!-- ── SUPPORTING AFFILIATE LINKS ──────────────────────── -->
+<div class="detail-info-card affiliate-card">
+  <h3>Plan Your Trip</h3>
+
+  <!-- Hotels -->
+  <div class="affiliate-section">
+    <div class="aff-label">Stay Nearby</div>
+    <a href={hotelUrl} target="_blank" rel="noopener noreferrer sponsored" class="aff-row">
+      <span class="aff-icon">🏨</span>
+      <span class="aff-text">
+        <span class="aff-name">Hotels near {city}</span>
+        <span class="aff-sub">Browse on Booking.com</span>
+      </span>
+      <svg class="aff-arrow" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+      </svg>
+    </a>
+  </div>
+
+  <!-- Book -->
+  <div class="affiliate-section">
+    <div class="aff-label">Recommended Reading</div>
+    <a href={products.book.url} target="_blank" rel="noopener noreferrer sponsored" class="aff-row">
+      <span class="aff-icon">📖</span>
+      <span class="aff-text">
+        <span class="aff-name">{products.book.name}</span>
+        <span class="aff-sub">{products.book.sub}</span>
+      </span>
+      <svg class="aff-arrow" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+      </svg>
+    </a>
+  </div>
+
+  <!-- Kit -->
+  <div class="affiliate-section">
+    <div class="aff-label">Science Kit</div>
+    <a href={products.kit.url} target="_blank" rel="noopener noreferrer sponsored" class="aff-row">
+      <span class="aff-icon">🔬</span>
+      <span class="aff-text">
+        <span class="aff-name">{products.kit.name}</span>
+        <span class="aff-sub">{products.kit.sub}</span>
+      </span>
+      <svg class="aff-arrow" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+      </svg>
+    </a>
+    <a href={products.kiwico.url} target="_blank" rel="noopener noreferrer sponsored" class="aff-row" style="margin-top: 4px;">
+      <span class="aff-icon">🧪</span>
+      <span class="aff-text">
+        <span class="aff-name">{products.kiwico.name} — KiwiCo</span>
+        <span class="aff-sub">{products.kiwico.sub}</span>
+      </span>
+      <svg class="aff-arrow" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+      </svg>
+    </a>
+  </div>
+
+  <p class="aff-disclosure">
+    Affiliate links — SciFindr may earn a small commission at no extra cost to you.
+  </p>
+</div>
+
+<style>
+  /* ── Ticket hero ───────────────────────────────────────── */
+  .ticket-hero {
+    background: linear-gradient(135deg, hsl(200 60% 14%), hsl(195 57% 30%));
+    border-radius: 10px;
+    padding: 20px;
+    color: hsl(0 0% 99%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ticket-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .ticket-hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: hsl(195 70% 70%);
+    margin-bottom: 10px;
+  }
+
+  .ticket-hero-label {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 5px;
+  }
+
+  .ticket-hero-sub {
+    font-size: 12px;
+    line-height: 1.5;
+    color: hsl(0 0% 99% / 0.65);
+    margin-bottom: 16px;
+  }
+
+  .ticket-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    width: 100%;
+    padding: 11px 16px;
+    background: hsl(0 0% 99%);
+    color: hsl(200 60% 18%);
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.15s, transform 0.1s;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ticket-cta:hover {
+    background: hsl(195 50% 92%);
+    color: hsl(200 60% 18%);
+    transform: translateY(-1px);
+  }
+
+  .tour-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .tour-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 9px 11px;
+    background: hsl(0 0% 99% / 0.08);
+    border: 1px solid hsl(0 0% 99% / 0.15);
+    border-radius: 7px;
+    text-decoration: none;
+    transition: background 0.15s, border-color 0.15s;
+  }
+
+  .tour-card:hover {
+    background: hsl(0 0% 99% / 0.15);
+    border-color: hsl(0 0% 99% / 0.3);
+  }
+
+  .tour-card-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  .tour-badge {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: hsl(195 70% 70%);
+  }
+
+  .tour-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: hsl(0 0% 99%);
+    line-height: 1.3;
+  }
+
+  .tour-provider {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: hsl(0 0% 99% / 0.45);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .ticket-secondary {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+
+  .ticket-secondary-link {
+    font-size: 11px;
+    color: hsl(0 0% 99% / 0.55);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.15s;
+  }
+
+  .ticket-secondary-link:hover {
+    color: hsl(0 0% 99% / 0.9);
+  }
+
+  .ticket-secondary-divider {
+    font-size: 11px;
+    color: hsl(0 0% 99% / 0.25);
+  }
+
+  /* ── Affiliate card ────────────────────────────────────── */
+  .affiliate-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .affiliate-section {
+    border-bottom: 0.5px solid hsl(210 14% 93% / 0.7);
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+  }
+
+  .affiliate-section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .aff-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: hsl(210 8% 55%);
+    margin-bottom: 8px;
+  }
+
+  .aff-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    background: hsl(210 18% 95%);
+    border: 0.5px solid hsl(210 14% 91%);
+    text-decoration: none;
+    transition: background 0.15s, border-color 0.15s;
+    cursor: pointer;
+  }
+
+  .aff-row:hover {
+    background: hsl(195 50% 92%);
+    border-color: hsl(195 57% 44% / 0.3);
+  }
+
+  .aff-icon {
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .aff-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .aff-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: hsl(220 20% 10%);
+    line-height: 1.3;
+  }
+
+  .aff-row:hover .aff-name {
+    color: hsl(200 60% 18%);
+  }
+
+  .aff-sub {
+    font-size: 11px;
+    color: hsl(210 8% 55%);
+    line-height: 1.3;
+  }
+
+  .aff-arrow {
+    flex-shrink: 0;
+    color: hsl(210 8% 70%);
+    margin-top: 3px;
+  }
+
+  .aff-row:hover .aff-arrow {
+    color: hsl(195 57% 44%);
+  }
+
+  .aff-disclosure {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: hsl(210 8% 60% / 0.7);
+    line-height: 1.5;
+    margin-top: 12px;
+    letter-spacing: 0.02em;
+  }
+</style>

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import museums from '../../data/museums.json';
+import AffiliateLinks from '../../components/AffiliateLinks.astro';
 
 export function getStaticPaths() {
   return museums.map(museum => ({
@@ -23,13 +24,6 @@ const { museum } = Astro.props;
     />
     <div class="detail-hero-overlay">
       <div class="container">
-        <div class="breadcrumbs" style="color: hsl(var(--hero-fg) / 0.5); margin-bottom: 1rem;">
-          <a href="/" style="color: hsl(var(--hero-accent));">Home</a>
-          <span>/</span>
-          <a href="/museums" style="color: hsl(var(--hero-accent));">Museums</a>
-          <span>/</span>
-          <span style="color: hsl(var(--hero-fg) / 0.7);">{museum.name}</span>
-        </div>
         <h1>{museum.name}</h1>
         <p class="location">
           <svg style="display:inline; vertical-align:-2px; margin-right:4px;" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -44,6 +38,13 @@ const { museum } = Astro.props;
   <!-- Detail Content -->
   <section class="detail-content">
     <div class="container">
+      <div class="breadcrumbs">
+        <a href="/">Home</a>
+        <span>/</span>
+        <a href="/museums">Museums</a>
+        <span>/</span>
+        <span>{museum.name}</span>
+      </div>
       <div class="detail-body">
 
         <!-- Main content -->
@@ -119,10 +120,20 @@ const { museum } = Astro.props;
             </div>
           </div>
 
+          <!-- Affiliate links (ticket hero is inside, shown first) -->
+          <AffiliateLinks
+            ticketUrl={museum.ticketUrl}
+            museumName={museum.name}
+            city={museum.city}
+            country={museum.country}
+            type={museum.type}
+            tours={museum.tours}
+          />
+
           <!-- Website Link -->
           {museum.website && (
-            <a href={museum.website} target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; justify-content: center;">
-              Visit Website
+            <a href={museum.website} target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width: 100%; justify-content: center;">
+              Official Website
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
               </svg>

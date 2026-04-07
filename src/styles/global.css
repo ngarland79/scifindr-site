@@ -418,6 +418,8 @@ a:hover { color: hsl(var(--accent-foreground)); }
   position: relative;
   height: 400px;
   overflow: hidden;
+  /* Contains mix-blend-mode so it doesn't bleed into the rest of the page */
+  isolation: isolate;
 }
 .detail-hero img {
   width: 100%;
@@ -427,11 +429,29 @@ a:hover { color: hsl(var(--accent-foreground)); }
 .detail-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, hsl(var(--hero-bg) / 0.85) 0%, transparent 60%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding: 3rem;
+}
+/* Adaptive scrim: mix-blend-mode:multiply darkens bright pixels the most,
+   self-limits on dark pixels. Works on any photo — light or dark. */
+.detail-hero-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top,
+      hsl(200 60% 5% / 0.82)  0%,
+      hsl(200 60% 5% / 0.5)  35%,
+      transparent              65%);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+/* Text sits above the blended pseudo-element and is not affected by it */
+.detail-hero-overlay .container {
+  position: relative;
+  z-index: 1;
 }
 .detail-hero-overlay h1 {
   font-family: var(--font-display);
@@ -440,12 +460,14 @@ a:hover { color: hsl(var(--accent-foreground)); }
   color: hsl(var(--hero-fg));
   line-height: 1.1;
   letter-spacing: -0.02em;
+  text-shadow: 0 1px 3px hsl(0 0% 0% / 0.5), 0 4px 20px hsl(0 0% 0% / 0.4);
 }
 .detail-hero-overlay .location {
   font-family: var(--font-body);
   font-size: 1rem;
-  color: hsl(var(--hero-fg) / 0.7);
+  color: hsl(var(--hero-fg));
   margin-top: 0.5rem;
+  text-shadow: 0 1px 3px hsl(0 0% 0% / 0.5);
 }
 .detail-content {
   padding: 3rem 0;

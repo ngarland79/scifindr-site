@@ -11,6 +11,7 @@
     "latitude": 38.8913,
     "longitude": -77.0261,
     "website": "https://naturalhistory.si.edu",
+    "ticketUrl": null,
     "yearFounded": 1910,
     "admission": "Free",
     "highlights": [
@@ -24,7 +25,21 @@
     "wikidata_id": "Q131626",
     "imageFullUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Aerial_View_of_Smithsonian_Institution_Building_and_Natural_History_Building.jpg",
     "imageLicense": "Public domain",
-    "imageTitle": "Aerial View of Smithsonian Institution Building and Natural History Building.jpg"
+    "imageTitle": "Aerial View of Smithsonian Institution Building and Natural History Building.jpg",
+    "tours": [
+      {
+        "title": "Smithsonian Natural History Guided Tour",
+        "provider": "getyourguide",
+        "badge": "Guided Tour",
+        "url": "https://www.getyourguide.com/s/?q=Smithsonian+Natural+History+Museum+guided+tour"
+      },
+      {
+        "title": "DC Monuments & Smithsonian Museums Tour",
+        "provider": "viator",
+        "badge": "Walking Tour",
+        "url": "https://www.viator.com/search/Smithsonian+Natural+History+Museum+tour"
+      }
+    ]
   },
   {
     "id": "amnh",
@@ -38,6 +53,7 @@
     "latitude": 40.7813,
     "longitude": -73.974,
     "website": "https://www.amnh.org",
+    "ticketUrl": "https://www.amnh.org/tickets",
     "yearFounded": 1869,
     "admission": "Pay-what-you-wish",
     "highlights": [
@@ -51,7 +67,21 @@
     "wikidata_id": "Q217717",
     "imageFullUrl": "https://upload.wikimedia.org/wikipedia/commons/9/95/American_Museum_of_Natural_History_03.jpg",
     "imageLicense": "CC BY-SA 3.0",
-    "imageTitle": "American Museum of Natural History 03.jpg"
+    "imageTitle": "American Museum of Natural History 03.jpg",
+    "tours": [
+      {
+        "title": "AMNH Guided Highlights Tour",
+        "provider": "getyourguide",
+        "badge": "Expert Guide",
+        "url": "https://www.getyourguide.com/s/?q=American+Museum+Natural+History+guided+tour"
+      },
+      {
+        "title": "Hayden Planetarium + Museum Combo",
+        "provider": "viator",
+        "badge": "Combo Ticket",
+        "url": "https://www.viator.com/search/American+Museum+Natural+History+Planetarium"
+      }
+    ]
   },
   {
     "id": "exploratorium",
@@ -65,6 +95,7 @@
     "latitude": 37.8017,
     "longitude": -122.3975,
     "website": "https://www.exploratorium.edu",
+    "ticketUrl": "https://www.exploratorium.edu/visit/tickets",
     "yearFounded": 1969,
     "admission": "Paid",
     "highlights": [
@@ -78,7 +109,21 @@
     "wikidata_id": "Q842408",
     "imageFullUrl": "https://upload.wikimedia.org/wikipedia/commons/9/92/Exploratorium_entrance_at_Pier_15%2C_SF_%28Nov_2015%29.jpg",
     "imageLicense": "CC BY-SA 4.0",
-    "imageTitle": "Exploratorium entrance at Pier 15, SF (Nov 2015).jpg"
+    "imageTitle": "Exploratorium entrance at Pier 15, SF (Nov 2015).jpg",
+    "tours": [
+      {
+        "title": "Exploratorium After Dark: NightLife",
+        "provider": "getyourguide",
+        "badge": "Evening Event",
+        "url": "https://www.getyourguide.com/s/?q=Exploratorium+San+Francisco+NightLife"
+      },
+      {
+        "title": "San Francisco Science & Innovation Tour",
+        "provider": "viator",
+        "badge": "City Tour",
+        "url": "https://www.viator.com/search/Exploratorium+San+Francisco+tour"
+      }
+    ]
   },
   {
     "id": "california-academy-sciences",
@@ -92,6 +137,7 @@
     "latitude": 37.7699,
     "longitude": -122.4661,
     "website": "https://www.calacademy.org",
+    "ticketUrl": "https://www.calacademy.org/buy-tickets",
     "yearFounded": 1853,
     "admission": "Paid",
     "highlights": [
@@ -105,7 +151,21 @@
     "wikidata_id": "Q593946",
     "imageFullUrl": "https://upload.wikimedia.org/wikipedia/commons/4/44/CAS-Front_of_California_Academy_Building.JPG",
     "imageLicense": "CC BY-SA 3.0",
-    "imageTitle": "CAS-Front of California Academy Building.JPG"
+    "imageTitle": "CAS-Front of California Academy Building.JPG",
+    "tours": [
+      {
+        "title": "Cal Academy NightLife Adult Evening",
+        "provider": "getyourguide",
+        "badge": "Evening Event",
+        "url": "https://www.getyourguide.com/s/?q=California+Academy+Sciences+NightLife"
+      },
+      {
+        "title": "Golden Gate Park Museums Combo",
+        "provider": "viator",
+        "badge": "Combo Tour",
+        "url": "https://www.viator.com/search/California+Academy+Sciences+Golden+Gate+Park"
+      }
+    ]
   },
   {
     "id": "museum-science-industry-chicago",
@@ -119,6 +179,7 @@
     "latitude": 41.7906,
     "longitude": -87.5831,
     "website": "https://www.msichicago.org",
+    "ticketUrl": "https://www.msichicago.org/visit/buy-tickets/",
     "yearFounded": 1933,
     "admission": "Paid",
     "highlights": [
@@ -132,7 +193,21 @@
     "wikidata_id": "Q1780087",
     "imageFullUrl": "https://upload.wikimedia.org/wikipedia/commons/4/45/The_Museum_of_Science_and_Industry_in_Chicago%2C_at_night%2C_illuminated_by_Firing_1000_Sylvania_Flash..._%28NBY_417093%29.jpg",
     "imageLicense": "Public domain",
-    "imageTitle": "The Museum of Science and Industry in Chicago, at night, illuminated by Firing 1000 Sylvania Flash... (NBY 417093).jpg"
+    "imageTitle": "The Museum of Science and Industry in Chicago, at night, illuminated by Firing 1000 Sylvania Flash... (NBY 417093).jpg",
+    "tours": [
+      {
+        "title": "Museum of Science & Industry Skip-the-Line",
+        "provider": "getyourguide",
+        "badge": "Skip the Line",
+        "url": "https://www.getyourguide.com/s/?q=Museum+Science+Industry+Chicago"
+      },
+      {
+        "title": "Chicago Museum Campus Day Tour",
+        "provider": "viator",
+        "badge": "Day Tour",
+        "url": "https://www.viator.com/search/Museum+Science+Industry+Chicago+tour"
+      }
+    ]
   },
   {
     "id": "field-museum",
@@ -146,20 +221,35 @@
     "latitude": 41.8663,
     "longitude": -87.617,
     "website": "https://www.fieldmuseum.org",
+    "ticketUrl": "https://www.fieldmuseum.org/visit/buy-tickets",
     "yearFounded": 1893,
     "admission": "Paid",
     "highlights": [
       "SUE the T. rex",
       "Evolving Planet",
       "Ancient Egypt",
-      "M\u00e1ximo the Titanosaur"
+      "Máximo the Titanosaur"
     ],
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Field_Museum_of_Natural_History.jpg/960px-Field_Museum_of_Natural_History.jpg",
     "imageCredit": "Joe Ravi / Wikimedia Commons (CC BY-SA 3.0)",
     "wikidata_id": "Q616594",
     "imageFullUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Field_Museum_of_Natural_History.jpg",
     "imageLicense": "CC BY-SA 3.0",
-    "imageTitle": "Field Museum of Natural History.jpg"
+    "imageTitle": "Field Museum of Natural History.jpg",
+    "tours": [
+      {
+        "title": "Field Museum: SUE the T. rex Guided Tour",
+        "provider": "getyourguide",
+        "badge": "Expert Guide",
+        "url": "https://www.getyourguide.com/s/?q=Field+Museum+Chicago+guided+tour"
+      },
+      {
+        "title": "Chicago Museum Campus: Field + Shedd + Adler",
+        "provider": "viator",
+        "badge": "Combo Pass",
+        "url": "https://www.viator.com/search/Field+Museum+Chicago+Museum+Campus"
+      }
+    ]
   },
   {
     "id": "science-museum-london",
@@ -173,6 +263,7 @@
     "latitude": 51.4978,
     "longitude": -0.1745,
     "website": "https://www.sciencemuseum.org.uk",
+    "ticketUrl": null,
     "yearFounded": 1857,
     "admission": "Free",
     "highlights": [
@@ -186,7 +277,21 @@
     "wikidata_id": "Q188802",
     "imageFullUrl": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Back_of_the_Science_Museum%2C_Frankland_Road_on_a_spring_afternoon.jpg",
     "imageLicense": "CC BY-SA 4.0",
-    "imageTitle": "Back of the Science Museum, Frankland Road on a spring afternoon.jpg"
+    "imageTitle": "Back of the Science Museum, Frankland Road on a spring afternoon.jpg",
+    "tours": [
+      {
+        "title": "Science Museum London Highlights Tour",
+        "provider": "getyourguide",
+        "badge": "Guided Tour",
+        "url": "https://www.getyourguide.com/s/?q=Science+Museum+London+guided+tour"
+      },
+      {
+        "title": "South Kensington Museums Walking Tour",
+        "provider": "viator",
+        "badge": "Walking Tour",
+        "url": "https://www.viator.com/search/Science+Museum+London+South+Kensington"
+      }
+    ]
   },
   {
     "id": "natural-history-museum-london",
@@ -200,6 +305,7 @@
     "latitude": 51.4967,
     "longitude": -0.1764,
     "website": "https://www.nhm.ac.uk",
+    "ticketUrl": null,
     "yearFounded": 1881,
     "admission": "Free",
     "highlights": [
@@ -213,7 +319,21 @@
     "wikidata_id": "Q309388",
     "imageFullUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Natural_History_Museum_London_Jan_2006.jpg",
     "imageLicense": "CC BY-SA 3.0",
-    "imageTitle": "Natural History Museum London Jan 2006.jpg"
+    "imageTitle": "Natural History Museum London Jan 2006.jpg",
+    "tours": [
+      {
+        "title": "Natural History Museum London Guided Tour",
+        "provider": "getyourguide",
+        "badge": "Expert Guide",
+        "url": "https://www.getyourguide.com/s/?q=Natural+History+Museum+London+guided+tour"
+      },
+      {
+        "title": "London: NHM & V&A Museum Combo Tour",
+        "provider": "viator",
+        "badge": "Combo Tour",
+        "url": "https://www.viator.com/search/Natural+History+Museum+London+tour"
+      }
+    ]
   },
   {
     "id": "deutsches-museum",
@@ -227,6 +347,7 @@
     "latitude": 48.1298,
     "longitude": 11.5832,
     "website": "https://www.deutsches-museum.de",
+    "ticketUrl": "https://www.deutsches-museum.de/en/tickets",
     "yearFounded": 1903,
     "admission": "Paid",
     "highlights": [
@@ -240,7 +361,21 @@
     "wikidata_id": "Q162388",
     "imageFullUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1c/The_main_building_of_the_Deutsches_Museum_in_Munich.jpg",
     "imageLicense": "CC0",
-    "imageTitle": "The main building of the Deutsches Museum in Munich.jpg"
+    "imageTitle": "The main building of the Deutsches Museum in Munich.jpg",
+    "tours": [
+      {
+        "title": "Deutsches Museum Highlights Guided Tour",
+        "provider": "getyourguide",
+        "badge": "Expert Guide",
+        "url": "https://www.getyourguide.com/s/?q=Deutsches+Museum+Munich+guided+tour"
+      },
+      {
+        "title": "Munich Science & Culture Day Tour",
+        "provider": "viator",
+        "badge": "Day Tour",
+        "url": "https://www.viator.com/search/Deutsches+Museum+Munich+tour"
+      }
+    ]
   },
   {
     "id": "cite-des-sciences",
@@ -254,6 +389,7 @@
     "latitude": 48.896,
     "longitude": 2.3873,
     "website": "https://www.cite-sciences.fr",
+    "ticketUrl": "https://www.cite-sciences.fr/en/tickets",
     "yearFounded": 1986,
     "admission": "Paid",
     "highlights": [
@@ -267,7 +403,21 @@
     "wikidata_id": "Q1132022",
     "imageFullUrl": "https://upload.wikimedia.org/wikipedia/commons/6/69/Cit%C3%A9_des_Sciences_et_de_l%27Industrie_%40_Parc_de_La_Villette_%40_Paris_%2828957995305%29.jpg",
     "imageLicense": "CC BY 2.0",
-    "imageTitle": "Cit\u00e9 des Sciences et de l'Industrie @ Parc de La Villette @ Paris (28957995305).jpg"
+    "imageTitle": "Cité des Sciences et de l'Industrie @ Parc de La Villette @ Paris (28957995305).jpg",
+    "tours": [
+      {
+        "title": "Cité des Sciences Entry + Géode IMAX",
+        "provider": "getyourguide",
+        "badge": "Combo Ticket",
+        "url": "https://www.getyourguide.com/s/?q=Cite+Sciences+Paris+Geode+IMAX"
+      },
+      {
+        "title": "Paris: Parc de la Villette Science Tour",
+        "provider": "viator",
+        "badge": "Guided Tour",
+        "url": "https://www.viator.com/search/Cite+Sciences+Industrie+Paris+tour"
+      }
+    ]
   },
   {
     "id": "nemo-amsterdam",
@@ -281,6 +431,7 @@
     "latitude": 52.3738,
     "longitude": 4.9123,
     "website": "https://www.nemosciencemuseum.nl",
+    "ticketUrl": "https://www.nemosciencemuseum.nl/en/tickets/",
     "yearFounded": 1997,
     "admission": "Paid",
     "highlights": [
@@ -294,7 +445,21 @@
     "wikidata_id": "Q1747622",
     "imageFullUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9e/2018_-_NEMO_Science_Museum%2C_Amsterdam%2C_Netherlands_%28_Ank_Kumar_%29_02.jpg",
     "imageLicense": "CC BY-SA 4.0",
-    "imageTitle": "2018 - NEMO Science Museum, Amsterdam, Netherlands ( Ank Kumar ) 02.jpg"
+    "imageTitle": "2018 - NEMO Science Museum, Amsterdam, Netherlands ( Ank Kumar ) 02.jpg",
+    "tours": [
+      {
+        "title": "NEMO Science Museum Skip-the-Line",
+        "provider": "getyourguide",
+        "badge": "Skip the Line",
+        "url": "https://www.getyourguide.com/s/?q=NEMO+Science+Museum+Amsterdam+tickets"
+      },
+      {
+        "title": "Amsterdam Harbour & NEMO Rooftop Tour",
+        "provider": "viator",
+        "badge": "Combo Tour",
+        "url": "https://www.viator.com/search/NEMO+Science+Museum+Amsterdam+tour"
+      }
+    ]
   },
   {
     "id": "cosmocaixa-barcelona",
@@ -308,6 +473,7 @@
     "latitude": 41.4131,
     "longitude": 2.1316,
     "website": "https://cosmocaixa.org",
+    "ticketUrl": "https://cosmocaixa.org/en/tickets/",
     "yearFounded": 2004,
     "admission": "Paid",
     "highlights": [
@@ -321,7 +487,21 @@
     "wikidata_id": "Q1136309",
     "imageFullUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9a/CosmoCaixa_building.jpg",
     "imageLicense": "CC BY-SA 3.0",
-    "imageTitle": "CosmoCaixa building.jpg"
+    "imageTitle": "CosmoCaixa building.jpg",
+    "tours": [
+      {
+        "title": "CosmoCaixa Planetarium + Rainforest Tour",
+        "provider": "getyourguide",
+        "badge": "Expert Guide",
+        "url": "https://www.getyourguide.com/s/?q=CosmoCaixa+Barcelona+planetarium+tour"
+      },
+      {
+        "title": "Barcelona Science & Modernisme Tour",
+        "provider": "viator",
+        "badge": "City Tour",
+        "url": "https://www.viator.com/search/CosmoCaixa+Barcelona+tour"
+      }
+    ]
   },
   {
     "id": "national-museum-nature-science-tokyo",
@@ -335,20 +515,35 @@
     "latitude": 35.7163,
     "longitude": 139.7765,
     "website": "https://www.kahaku.go.jp",
+    "ticketUrl": "https://www.kahaku.go.jp/english/",
     "yearFounded": 1877,
     "admission": "Paid",
     "highlights": [
       "Japan Gallery",
       "Global Gallery",
       "Hachiko Specimen",
-      "360\u00b0 Theatre"
+      "360° Theatre"
     ],
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/National_Museum_of_Nature_and_Science_5.jpg/960px-National_Museum_of_Nature_and_Science_5.jpg",
     "imageCredit": "Syced / Wikimedia Commons (CC0)",
     "wikidata_id": "Q1058674",
     "imageFullUrl": "https://upload.wikimedia.org/wikipedia/commons/9/90/National_Museum_of_Nature_and_Science_5.jpg",
     "imageLicense": "CC0",
-    "imageTitle": "National Museum of Nature and Science 5.jpg"
+    "imageTitle": "National Museum of Nature and Science 5.jpg",
+    "tours": [
+      {
+        "title": "Ueno Park Museums Guided Walking Tour",
+        "provider": "getyourguide",
+        "badge": "Walking Tour",
+        "url": "https://www.getyourguide.com/s/?q=Ueno+Park+Natural+History+Museum+Tokyo+tour"
+      },
+      {
+        "title": "Tokyo: Natural History & Ueno Cultural Tour",
+        "provider": "viator",
+        "badge": "Cultural Tour",
+        "url": "https://www.viator.com/search/National+Museum+Nature+Science+Tokyo+tour"
+      }
+    ]
   },
   {
     "id": "museum-natural-sciences-brussels",
@@ -362,6 +557,7 @@
     "latitude": 50.8387,
     "longitude": 4.3665,
     "website": "https://www.naturalsciences.be",
+    "ticketUrl": "https://www.naturalsciences.be/en/visit",
     "yearFounded": 1846,
     "admission": "Paid",
     "highlights": [
@@ -375,7 +571,21 @@
     "wikidata_id": "Q2091399",
     "imageFullUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Iguanodon_sculpture_brussels_email.jpg",
     "imageLicense": "Public domain",
-    "imageTitle": "Iguanodon sculpture brussels email.jpg"
+    "imageTitle": "Iguanodon sculpture brussels email.jpg",
+    "tours": [
+      {
+        "title": "Brussels Natural Sciences Museum Guided Tour",
+        "provider": "getyourguide",
+        "badge": "Expert Guide",
+        "url": "https://www.getyourguide.com/s/?q=Museum+Natural+Sciences+Brussels+guided+tour"
+      },
+      {
+        "title": "Brussels Royal Museums Science Day Pass",
+        "provider": "viator",
+        "badge": "Multi-Museum",
+        "url": "https://www.viator.com/search/Museum+Natural+Sciences+Brussels+tour"
+      }
+    ]
   },
   {
     "id": "science-centre-singapore",
@@ -389,6 +599,7 @@
     "latitude": 1.3329,
     "longitude": 103.7362,
     "website": "https://www.science.edu.sg",
+    "ticketUrl": "https://www.science.edu.sg/visit-us/tickets-and-admission",
     "yearFounded": 1977,
     "admission": "Paid",
     "highlights": [
@@ -402,7 +613,21 @@
     "wikidata_id": "Q4413025",
     "imageFullUrl": "https://upload.wikimedia.org/wikipedia/commons/9/91/2012-07-07_Jurong_East_03.JPG",
     "imageLicense": "CC BY-SA 4.0",
-    "imageTitle": "2012-07-07 Jurong East 03.JPG"
+    "imageTitle": "2012-07-07 Jurong East 03.JPG",
+    "tours": [
+      {
+        "title": "Science Centre + Omni-Theatre Package",
+        "provider": "getyourguide",
+        "badge": "Combo Ticket",
+        "url": "https://www.getyourguide.com/s/?q=Science+Centre+Singapore+Omni+Theatre"
+      },
+      {
+        "title": "Singapore STEM Attractions Family Tour",
+        "provider": "viator",
+        "badge": "Family Tour",
+        "url": "https://www.viator.com/search/Science+Centre+Singapore+tour"
+      }
+    ]
   },
   {
     "id": "hong-kong-science-museum",
@@ -416,6 +641,7 @@
     "latitude": 22.3012,
     "longitude": 114.1747,
     "website": "https://hk.science.museum",
+    "ticketUrl": "https://hk.science.museum/en_US/web/scm/ticket.html",
     "yearFounded": 1991,
     "admission": "Paid",
     "highlights": [
@@ -429,7 +655,21 @@
     "wikidata_id": "Q2717082",
     "imageFullUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/HK_TST_%E5%B0%96%E6%B2%99%E5%92%80_Tsim_Sha_Tsui_%E6%BC%86%E5%92%B8%E9%81%93%E5%8D%97_Chatham_Road_South_Hong_Kong_Museum_of_Science_Big_exhibition_August_2022_Px3_01.jpg",
     "imageLicense": "CC BY-SA 4.0",
-    "imageTitle": "HK TST \u5c16\u6c99\u5480 Tsim Sha Tsui \u6f06\u54b8\u9053\u5357 Chatham Road South Hong Kong Museum of Science Big exhibition August 2022 Px3 01.jpg"
+    "imageTitle": "HK TST 尖沙咀 Tsim Sha Tsui 漆咸道南 Chatham Road South Hong Kong Museum of Science Big exhibition August 2022 Px3 01.jpg",
+    "tours": [
+      {
+        "title": "Kowloon: Science & Space Museum Combo",
+        "provider": "getyourguide",
+        "badge": "Combo Ticket",
+        "url": "https://www.getyourguide.com/s/?q=Hong+Kong+Science+Museum+Space+Museum+combo"
+      },
+      {
+        "title": "Hong Kong Cultural Kowloon Museums Tour",
+        "provider": "viator",
+        "badge": "Cultural Tour",
+        "url": "https://www.viator.com/search/Hong+Kong+Science+Museum+tour"
+      }
+    ]
   },
   {
     "id": "questacon",
@@ -443,6 +683,7 @@
     "latitude": -35.2925,
     "longitude": 149.1355,
     "website": "https://www.questacon.edu.au",
+    "ticketUrl": "https://www.questacon.edu.au/visit/book-tickets",
     "yearFounded": 1988,
     "admission": "Paid",
     "highlights": [
@@ -456,7 +697,21 @@
     "wikidata_id": "Q3927975",
     "imageFullUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f2/The_Astronomer_sculpture_by_Tim_Wetherell_at_Questacon.jpg",
     "imageLicense": "CC BY-SA 3.0",
-    "imageTitle": "The Astronomer sculpture by Tim Wetherell at Questacon.jpg"
+    "imageTitle": "The Astronomer sculpture by Tim Wetherell at Questacon.jpg",
+    "tours": [
+      {
+        "title": "Questacon + National Museum of Australia",
+        "provider": "getyourguide",
+        "badge": "Combo Tour",
+        "url": "https://www.getyourguide.com/s/?q=Questacon+Canberra+National+Museum"
+      },
+      {
+        "title": "Canberra Capital Culture Day Tour",
+        "provider": "viator",
+        "badge": "Day Tour",
+        "url": "https://www.viator.com/search/Questacon+Canberra+tour"
+      }
+    ]
   },
   {
     "id": "experimentarium",
@@ -470,6 +725,7 @@
     "latitude": 55.7296,
     "longitude": 12.5773,
     "website": "https://www.experimentarium.dk",
+    "ticketUrl": "https://www.experimentarium.dk/billetter/",
     "yearFounded": 1991,
     "admission": "Paid",
     "highlights": [
@@ -483,7 +739,21 @@
     "wikidata_id": "Q1384297",
     "imageFullUrl": "https://upload.wikimedia.org/wikipedia/commons/9/99/20171005_Experimentarium_Hellerup_0062_%2837729624156%29.jpg",
     "imageLicense": "CC BY 2.0",
-    "imageTitle": "20171005 Experimentarium Hellerup 0062 (37729624156).jpg"
+    "imageTitle": "20171005 Experimentarium Hellerup 0062 (37729624156).jpg",
+    "tours": [
+      {
+        "title": "Experimentarium Skip-the-Line Tickets",
+        "provider": "getyourguide",
+        "badge": "Skip the Line",
+        "url": "https://www.getyourguide.com/s/?q=Experimentarium+Copenhagen+tickets"
+      },
+      {
+        "title": "Copenhagen Science & Design Quarter Tour",
+        "provider": "viator",
+        "badge": "City Tour",
+        "url": "https://www.viator.com/search/Experimentarium+Copenhagen+tour"
+      }
+    ]
   },
   {
     "id": "universum-mexico",
@@ -497,6 +767,7 @@
     "latitude": 19.3109,
     "longitude": -99.1792,
     "website": "https://www.universum.unam.mx",
+    "ticketUrl": "https://www.universum.unam.mx/visita",
     "yearFounded": 1992,
     "admission": "Paid",
     "highlights": [
@@ -510,7 +781,21 @@
     "wikidata_id": "Q2459523",
     "imageFullUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ca/UniversumUNAM01.JPG",
     "imageLicense": "CC BY-SA 3.0",
-    "imageTitle": "UniversumUNAM01.JPG"
+    "imageTitle": "UniversumUNAM01.JPG",
+    "tours": [
+      {
+        "title": "UNAM Campus & Universum Science Tour",
+        "provider": "getyourguide",
+        "badge": "Campus Tour",
+        "url": "https://www.getyourguide.com/s/?q=Universum+UNAM+Mexico+City+science+tour"
+      },
+      {
+        "title": "Mexico City Science & Culture Discovery",
+        "provider": "viator",
+        "badge": "Cultural Tour",
+        "url": "https://www.viator.com/search/Universum+Mexico+City+tour"
+      }
+    ]
   },
   {
     "id": "pacific-science-center",
@@ -524,6 +809,7 @@
     "latitude": 47.6195,
     "longitude": -122.3517,
     "website": "https://pacificsciencecenter.org",
+    "ticketUrl": "https://pacificsciencecenter.org/tickets/",
     "yearFounded": 1962,
     "admission": "Paid",
     "highlights": [
@@ -537,7 +823,21 @@
     "wikidata_id": "Q3360419",
     "imageFullUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Pacific_Science_Center%2C_1968.jpg",
     "imageLicense": "CC BY 2.0",
-    "imageTitle": "Pacific Science Center, 1968.jpg"
+    "imageTitle": "Pacific Science Center, 1968.jpg",
+    "tours": [
+      {
+        "title": "Pacific Science Center + IMAX Theatre",
+        "provider": "getyourguide",
+        "badge": "Combo Ticket",
+        "url": "https://www.getyourguide.com/s/?q=Pacific+Science+Center+Seattle+IMAX"
+      },
+      {
+        "title": "Seattle Center: Science + Space Needle Tour",
+        "provider": "viator",
+        "badge": "Combo Tour",
+        "url": "https://www.viator.com/search/Pacific+Science+Center+Seattle+tour"
+      }
+    ]
   },
   {
     "id": "museum-tomorrow-rio",
@@ -551,6 +851,7 @@
     "latitude": -22.8944,
     "longitude": -43.18,
     "website": "https://museudoamanha.org.br",
+    "ticketUrl": "https://museudoamanha.org.br/en/visit",
     "yearFounded": 2015,
     "admission": "Paid",
     "highlights": [
@@ -560,11 +861,25 @@
       "Calatrava Architecture"
     ],
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Museu_do_Amanh%C3%A3_rio.jpg/960px-Museu_do_Amanh%C3%A3_rio.jpg",
-    "imageCredit": "Arne M\u00fcseler / Wikimedia Commons (CC BY-SA 3.0 de)",
+    "imageCredit": "Arne Müseler / Wikimedia Commons (CC BY-SA 3.0 de)",
     "wikidata_id": "Q17081tried_placeholder",
     "imageFullUrl": "https://upload.wikimedia.org/wikipedia/commons/6/63/Museu_do_Amanh%C3%A3_rio.jpg",
     "imageLicense": "CC BY-SA 3.0 de",
-    "imageTitle": "Museu do Amanh\u00e3 rio.jpg"
+    "imageTitle": "Museu do Amanhã rio.jpg",
+    "tours": [
+      {
+        "title": "Museum of Tomorrow Skip-the-Line Entry",
+        "provider": "getyourguide",
+        "badge": "Skip the Line",
+        "url": "https://www.getyourguide.com/s/?q=Museum+of+Tomorrow+Rio+de+Janeiro"
+      },
+      {
+        "title": "Rio Porto Maravilha Architecture & Science Tour",
+        "provider": "viator",
+        "badge": "Architecture Tour",
+        "url": "https://www.viator.com/search/Museum+Tomorrow+Rio+tour"
+      }
+    ]
   },
   {
     "id": "royal-ontario-museum",
@@ -578,6 +893,7 @@
     "latitude": 43.6677,
     "longitude": -79.3948,
     "website": "https://www.rom.on.ca",
+    "ticketUrl": "https://www.rom.on.ca/en/visit-us/admission",
     "yearFounded": 1914,
     "admission": "Paid",
     "highlights": [
@@ -591,7 +907,21 @@
     "wikidata_id": "Q283895",
     "imageFullUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Royal_Ontario_Museum_-_Toronto%2C_Canada_-_DSC00544.jpg",
     "imageLicense": "CC0",
-    "imageTitle": "Royal Ontario Museum - Toronto, Canada - DSC00544.jpg"
+    "imageTitle": "Royal Ontario Museum - Toronto, Canada - DSC00544.jpg",
+    "tours": [
+      {
+        "title": "Royal Ontario Museum Skip-the-Line Tour",
+        "provider": "getyourguide",
+        "badge": "Skip the Line",
+        "url": "https://www.getyourguide.com/s/?q=Royal+Ontario+Museum+Toronto+guided+tour"
+      },
+      {
+        "title": "Toronto Museums: ROM + AGO Highlights",
+        "provider": "viator",
+        "badge": "Multi-Museum",
+        "url": "https://www.viator.com/search/Royal+Ontario+Museum+Toronto+tour"
+      }
+    ]
   },
   {
     "id": "museo-ciencias-naturales-madrid",
@@ -605,6 +935,7 @@
     "latitude": 40.4405,
     "longitude": -3.6899,
     "website": "https://www.mncn.csic.es",
+    "ticketUrl": "https://www.mncn.csic.es/en/Visita/Entradas",
     "yearFounded": 1771,
     "admission": "Paid",
     "highlights": [
@@ -614,11 +945,25 @@
       "Real Cabinet"
     ],
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Museo_Nacional_de_Ciencias_Naturales_%28Madrid%29-Sala_de_Historia_Natural.jpg/960px-Museo_Nacional_de_Ciencias_Naturales_%28Madrid%29-Sala_de_Historia_Natural.jpg",
-    "imageCredit": "Jos\u00e9-Manuel Benito \u00c1lvarez (Espa\u00f1a) \u2014&gt; Locutus Borg / Wikimedia Commons (Public domain)",
+    "imageCredit": "José-Manuel Benito Álvarez (España) —&gt; Locutus Borg / Wikimedia Commons (Public domain)",
     "wikidata_id": "Q1132706",
     "imageFullUrl": "https://upload.wikimedia.org/wikipedia/commons/2/26/Museo_Nacional_de_Ciencias_Naturales_%28Madrid%29-Sala_de_Historia_Natural.jpg",
     "imageLicense": "Public domain",
-    "imageTitle": "Museo Nacional de Ciencias Naturales (Madrid)-Sala de Historia Natural.jpg"
+    "imageTitle": "Museo Nacional de Ciencias Naturales (Madrid)-Sala de Historia Natural.jpg",
+    "tours": [
+      {
+        "title": "Madrid Natural Sciences Museum Guided Tour",
+        "provider": "getyourguide",
+        "badge": "Expert Guide",
+        "url": "https://www.getyourguide.com/s/?q=Museo+Ciencias+Naturales+Madrid+guided+tour"
+      },
+      {
+        "title": "Madrid Paseo de la Castellana Museums Tour",
+        "provider": "viator",
+        "badge": "Walking Tour",
+        "url": "https://www.viator.com/search/Museo+Ciencias+Naturales+Madrid+tour"
+      }
+    ]
   },
   {
     "id": "powerhouse-museum-sydney",
@@ -632,6 +977,7 @@
     "latitude": -33.8783,
     "longitude": 151.1993,
     "website": "https://www.maas.museum",
+    "ticketUrl": "https://www.maas.museum/powerhouse-museum/visit/",
     "yearFounded": 1880,
     "admission": "Paid",
     "highlights": [
@@ -645,7 +991,21 @@
     "wikidata_id": "Q2789863",
     "imageFullUrl": "https://upload.wikimedia.org/wikipedia/commons/4/42/Museum_in_sydney0001.jpg",
     "imageLicense": "CC BY-SA 3.0",
-    "imageTitle": "Museum in sydney0001.jpg"
+    "imageTitle": "Museum in sydney0001.jpg",
+    "tours": [
+      {
+        "title": "Powerhouse Museum Sydney Guided Tour",
+        "provider": "getyourguide",
+        "badge": "Expert Guide",
+        "url": "https://www.getyourguide.com/s/?q=Powerhouse+Museum+Sydney+guided+tour"
+      },
+      {
+        "title": "Sydney Science & Heritage Precinct Tour",
+        "provider": "viator",
+        "badge": "Heritage Tour",
+        "url": "https://www.viator.com/search/Powerhouse+Museum+Sydney+tour"
+      }
+    ]
   },
   {
     "id": "copernicus-science-centre",
@@ -659,6 +1019,7 @@
     "latitude": 52.2419,
     "longitude": 21.0281,
     "website": "https://www.kopernik.org.pl",
+    "ticketUrl": "https://www.kopernik.org.pl/en/visit/tickets",
     "yearFounded": 2010,
     "admission": "Paid",
     "highlights": [
@@ -672,6 +1033,20 @@
     "wikidata_id": "Q1587913",
     "imageFullUrl": "https://upload.wikimedia.org/wikipedia/commons/2/23/Centrum_Nauki_Kopernik_w_Warszawie_Kino_plenerowe_2011-07-22_Olga_Wo%C5%BAniak_i_Piotr_Durka.jpg",
     "imageLicense": "CC BY-SA 4.0",
-    "imageTitle": "Centrum Nauki Kopernik w Warszawie Kino plenerowe 2011-07-22 Olga Wo\u017aniak i Piotr Durka.jpg"
+    "imageTitle": "Centrum Nauki Kopernik w Warszawie Kino plenerowe 2011-07-22 Olga Woźniak i Piotr Durka.jpg",
+    "tours": [
+      {
+        "title": "Copernicus Science Centre + Planetarium",
+        "provider": "getyourguide",
+        "badge": "Combo Ticket",
+        "url": "https://www.getyourguide.com/s/?q=Copernicus+Science+Centre+Warsaw+Planetarium"
+      },
+      {
+        "title": "Warsaw Waterfront Culture & Science Tour",
+        "provider": "viator",
+        "badge": "City Tour",
+        "url": "https://www.viator.com/search/Copernicus+Science+Centre+Warsaw+tour"
+      }
+    ]
   }
 ]
